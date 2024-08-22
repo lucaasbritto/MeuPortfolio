@@ -1,0 +1,67 @@
+.v-toolbar__content {
+  display: inline;
+  height: 100% !important ;
+  flex-direction: column;
+}
+
+.header-bar {
+  height: auto ;
+  margin-top:40px;
+  box-shadow: none;
+  padding: 0;  
+  display: flex;
+  flex-direction: column;     
+}
+
+
+.header-row {
+  height: 100px ;
+  background: $red-color;
+  display: flex;
+  align-items: center;   
+  flex-wrap: wrap;
+}
+
+
+.logo-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  padding: 0; 
+}
+
+
+.logo {
+  max-height: 100px ;
+}
+
+
+.search-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.search-input {
+  max-width: 70%; 
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.cart-icon {
+  font-size: 2rem;
+  color: $white-color;
+}
+
+.menu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $redDark-color;
+  width: 100%;
+}

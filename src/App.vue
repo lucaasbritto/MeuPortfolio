@@ -1,17 +1,22 @@
 <template>
   <v-app>
-    <AppBar></AppBar>
-    <router-view/>
+    <InfoBar></InfoBar>
+    <HeaderComponent></HeaderComponent>
+    <v-main style="margin-top: 100px;">
+      <router-view/>
+    </v-main>
   </v-app>
 </template>
 
 <script>
-import AppBar from './components/AppBar.vue';
+import InfoBar from './components/InfoBar/InfoBar.vue';
+import HeaderComponent from './components/HeaderComponent/HeaderComponent.vue';
 
 export default {
   name: 'App',
   components: {
-    AppBar
+    InfoBar,
+    HeaderComponent
   },
 
   data: () => ({

@@ -1,0 +1,28 @@
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 599px) {
+  .header-row { 
+    height: auto; 
+  }
+
+  .logo-container, .cart-container {
+    height: 150px !important;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+   
+  }
+
+  .logo {
+    max-height: 150px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .search-input {
+    max-width: 95%; 
+  }
+
+}
