@@ -1,0 +1,43 @@
+.mobile-menu{
+    background: $redDark-color;
+  }
+
+  .v-card {
+    border-radius: 0px !important;
+    background: $redDark-color;
+    color: white !important;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: $red-color;
+  }
+
+  .mobile-menu-item {
+    cursor: pointer;
+  }
+
+  .headline {
+    flex-grow: 1;
+  }
+
+  .drawer-divider {
+    border-color: $white-color;
+    border-width: 1px; 
+  } 
+
+  .drawer-footer{
+    background: $red-color;
+  }
+
+  .drawer-footer-list-item {
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+  }
+
+  .drawer-footer-list-item-content {
+    flex: 1; 
+  }
