@@ -1,28 +1,11 @@
 <template>
   <div>
     <!-- Navigation Drawer -->
-    <v-navigation-drawer
-      v-model="drawer"
-      :width="drawerWidth"
-      temporary
-      app
-      class="mobile-menu"
-    >    
-      <v-list>
-        <v-list-item
-          v-for="item in menuItems"
-          :key="item.title"
-          class="mobile-menu-item"
-          @click="drawer = false"
-        >
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ item.title }}
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <NavigationDrawer
+      :drawer="drawer"
+      :drawerWidth="drawerWidth"
+      :menuItems="menuItems"
+    />    
 
     <!-- Conteudo do Header -->
     <v-app-bar class="header-bar">    
@@ -83,6 +66,7 @@
 
 <script>
 import MenuComponent from '../Menu/MenuComponent.vue';
+import NavigationDrawer from '../NavigationDrawer/NavigationDrawer.vue';
 
 import './HeaderComponent.scss';
 import './HeaderComponent_mobile.scss';
@@ -94,7 +78,8 @@ export default {
   name: 'HeaderComponent',
 
   components: {
-    MenuComponent
+    MenuComponent,
+    NavigationDrawer
   },
 
   setup() {
@@ -102,7 +87,7 @@ export default {
     const display = useDisplay();
 
     const drawerWidth = computed(() => {
-      return display.mdAndUp ? 240 : 300;
+      return display.mdAndUp ? 300 : 350;
     });
 
     // ITENS DO MENU
