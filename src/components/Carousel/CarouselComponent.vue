@@ -1,36 +1,54 @@
 <template>
   <v-carousel
+    v-model="currentIndex" 
     :items-per-slide="1"
     hide-delimiters
     cycle
-    interval="5000" 
+    :interval="carouselInterval"
+    :style="{ width: carouselSize.width, height: carouselSize.height }"
     class="my-carousel"
+    :show-arrows="false"
   >
     <v-carousel-item
       v-for="(slide, index) in slides"
       :key="index"
     >
-      <img :src="slide.image" :alt="slide.alt" class="carousel-image">
+      <!-- Receber o valor dinamicamente -->
+      <slot :slide="slide">
+          <div class="default-content">
+            {{ slide }}
+          </div>
+      </slot>      
     </v-carousel-item>
+
+    <v-btn
+      class="carousel-nav carousel-prev"
+      @click="prevSlide"
+      icon
+      small
+    >
+      <v-icon>mdi-chevron-left</v-icon>
+    </v-btn>
+
+    <v-btn
+      class="carousel-nav carousel-next"
+      @click="nextSlide"
+      icon
+      small
+    >
+      <v-icon>mdi-chevron-right</v-icon>
+    </v-btn>
   </v-carousel>
 </template>
 
 <script>
 import './CarouselComponent.scss';
 import './CarouselComponent_mobile.scss';
+import CarouselComponentScript from './CarouselComponent.js';
 
-export default {
-  name: 'CarouselComponent',
-  data() {
-    return {
-      slides: [
-        { image: 'https://via.placeholder.com/1200x800?text=Slide+1', alt: 'Slide 1' },
-        { image: 'https://via.placeholder.com/1200x800?text=Slide+2', alt: 'Slide 2' },
-        { image: 'https://via.placeholder.com/1200x800?text=Slide+3', alt: 'Slide 3' },
-      ],
+    export default {
+      ...CarouselComponentScript,        
     };
-  },
-};
 </script>
 
 <style scoped>
