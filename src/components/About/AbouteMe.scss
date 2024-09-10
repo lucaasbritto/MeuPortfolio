@@ -1,0 +1,145 @@
+.container-aboutMe{
+    background: $black-color;
+}
+
+.about-card {
+    background-color: $black-color;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: $white-color;
+}
+
+.tech-card {
+    border-radius: 40px !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    background: $blackLight-color;    
+  }
+
+.tech-card:hover {
+    transform: scale(1.05);
+    background-color: $orange-color; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.tech-card .v-icon {
+    color: $white-color;
+}
+
+.tech-card .v-card-subtitle {
+    font-size: 0.5rem;
+    font-weight: bold;
+    color: $white-color;
+}
+
+
+.v-btn {
+    border-radius: 25px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    background: $orange-color;
+}
+
+.v-btn:hover {
+    background-color: $white-color;
+}
+
+.text-destaque{
+    color:$orange-color; 
+    font-weight: bold;
+}
+
+.expand-button {
+    margin-top: 16px;
+    text-transform: none;
+    font-size: 0.9rem;
+    color: $orange-color;
+    background: $grayDark-color !important;
+    font-weight: bold;
+    background: transparent;
+    border: none;    
+}
+
+.expand-button:hover {
+    cursor: pointer;
+    color: $orange-color;
+    text-decoration: underline;
+}
+
+
+// MOBILE
+@media (max-width: 599px) {
+    .titleSessao {
+        font-size: 1.2rem;        
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    /* Exibir ate X quantidade de letras */
+    .about-text-truncated {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+
+    .about-text-truncated::after {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: $black-color;
+        padding-left: 10px;
+    }
+
+    /* Remove o limite de linhas quando expandido */
+    .about-text-truncated.expanded {
+        -webkit-line-clamp: unset; 
+      }
+}
+
+
+// TABLET
+@media (min-width: 600px) and (max-width: 959px) {
+    .titleSessao {
+        font-size: 1.4rem;        
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    /* Exibir ate X quantidade de letras */
+    .about-text-truncated {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: relative;
+    }
+
+    .about-text-truncated::after {
+        content: '...';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: $black-color;
+        padding-left: 10px;
+    }
+
+    /* Remove o limite de linhas quando expandido */
+    .about-text-truncated.expanded {
+        -webkit-line-clamp: unset; 
+      }
+}

@@ -1,0 +1,147 @@
+.home-background {
+    position: relative;
+    height: 100vh;
+    background: 
+    linear-gradient(
+        rgba(0, 0, 0, 0.5), /* Cor preta com opacidade 50% no topo */
+        rgba(0, 0, 0, 0.7) /* Cor preta com opacidade 50% no fundo */
+    ),
+    url('../../assets/imagens/config/fundo_tela.jpg') no-repeat center center;
+    background-size: cover;
+    color: $white-color;
+    text-align: center;
+    overflow: hidden; 
+    margin: 0;  
+}
+
+.v-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $orange-color; 
+    overflow: hidden;
+    margin-top: -70px;
+
+    box-shadow: 0 4px 10px $orange-color; // Horizontal Offset, Vertical Offset, Blur Radius, Color
+
+    // Adicionando transição para suavizar mudanças de sombreamento
+    transition: box-shadow 0.3s ease;
+
+    // Adicionando um efeito de sombreamento mais intenso ao passar o mouse
+    &:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.v-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.title {    
+    font-family: $title-text;
+    font-size: 4rem; 
+}
+
+.title span{
+    color: $orange-color;
+}
+
+.subtitle {    
+    font-family: $digital-text;
+    font-size: 1.3rem;
+    margin-top: -20px;
+}
+
+.lineTitleHome {
+    flex: 1;
+    height: 1px;
+    background-color: $orange-color;
+    margin: -20px 10px 0 10px;
+}
+
+.avatarProfile{
+    width: 200px !important;
+    height: 200px !important;
+}
+
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background-color: $white-color; /* Cor do cursor */
+    margin-left: 0px;
+    animation: blink 1s step-start infinite;
+}
+  
+  /* Animação do cursor piscante */
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
+// MOBILE
+@media (max-width: 599px) {
+    .title {    
+        font-size: 2.5rem;
+      }
+
+      .subtitle {    
+        font-size: 0.9rem;
+        margin-top: -15px;
+        
+      }
+
+      .lineTitleHome {        
+        margin: -9px 10px 0 10px;
+      }
+
+      .colAvatar{
+        margin-top: 0px;
+      }
+
+      .v-avatar {        
+        border: 1px solid $orange-color; 
+      }
+
+      .avatarProfile{
+        width: 200px !important;
+        height: 200px !important;
+      }
+
+      .cursor {       
+        height: 12px;        
+      }
+
+}
+
+
+// TABLET
+@media (min-width: 600px) and (max-width: 959px) {
+    .title {    
+        font-size: 2.5rem;
+      }
+
+      .subtitle {    
+        font-size: 0.9rem;
+        margin-top: -15px;        
+      }
+
+      .lineTitleHome {        
+        margin: -9px 10px 0 10px;
+      }
+
+      .cursor {       
+        height: 12px;        
+      }
+
+}

@@ -1,0 +1,88 @@
+.contact-container {
+    padding: 20px;
+    background-color: $black-color;
+}
+  
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.contact-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: $grayMedium-color;
+    border-radius: 20px !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+  
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $white-color; 
+    margin-bottom: 20px; 
+}
+  
+.info {
+    font-size: 1rem;
+    color: $white-color; 
+}
+  
+.info a {
+    text-decoration: none;
+    color: $white-color;
+    font-weight: 600; 
+}
+  
+.info a:hover {
+    text-decoration: underline;
+}
+  
+.info-list{
+    background: $grayDark-color;
+    border-radius: 10px;
+}
+  
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    color: $white-color;    
+}
+  
+.contact-item span, a{
+    font-size:0.9rem;
+}
+  
+.icon {
+    font-size: 1.3rem;
+    color: $orange-color;
+    transition: color 0.3s ease; 
+}
+  
+.icon:hover {
+    color: $white-color;
+}
+  
+.photo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.photo {
+    max-width: 65%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+  
+.photo:hover {
+    transform: scale(1.05);
+}

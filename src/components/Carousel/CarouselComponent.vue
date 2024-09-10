@@ -42,15 +42,14 @@
 </template>
 
 <script>
-import './CarouselComponent.scss';
-import './CarouselComponent_mobile.scss';
 import CarouselComponentScript from './CarouselComponent.js';
 
-    export default {
-      ...CarouselComponentScript,        
-    };
+export default {
+  ...CarouselComponentScript,        
+};
 </script>
 
-<style scoped>
+<style lang="scss">
+    @import './CarouselComponent.scss';
 
 </style>

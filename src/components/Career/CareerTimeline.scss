@@ -1,0 +1,150 @@
+.containerCareer {
+    background: 
+    linear-gradient(
+        rgba(0, 0, 0, 0.5), /* Cor preta com opacidade 50% no topo */
+        rgba(0, 0, 0, 0.8) /* Cor preta com opacidade 50% no fundo */
+    ),
+    url('../../assets/imagens/config/fundo_career.jpg') no-repeat center center; /* Imagem de fundo */
+    background-size: cover;
+}
+
+.info-text {
+    text-align: center;
+    font-size: 1rem;
+    color: $orange-color;
+    margin-top: 10px;
+}
+  
+.timeline-carousel {
+    position: relative;
+    height: 500px;
+}
+
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 250px; 
+}
+  
+  /* Linha horizontal */
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 108, 42, 0.5); /* Cor da linha */
+    z-index: 1;
+}
+  
+  /* Ponto na linha */
+.timeline-dot {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background-color: $orange-color;
+    border-radius: 50%;
+    z-index: 2;
+    margin-top: -15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: $white-color;
+}
+  
+.timeline-year {
+    position: absolute;
+    font-size: 12px;
+    color: $white-color;
+}
+  
+.timeline-cards-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+  
+
+.timeline-card-wrapper {
+    position: absolute;
+    width: 200px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+    cursor: pointer;
+}
+  
+  /* Estilo dos cards acima e abaixo da linha */
+.above-line {
+    transform: translateY(-85px);
+}
+  
+.below-line {
+    transform: translateY(7px);
+}
+  
+
+.timeline-card {
+    background-color: $white-color;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 0px !important;
+    margin-left: 40px;  
+    width: 100%;
+}
+  
+  /* Estilos para o conteúdo do card */
+.timeline-card h3 {
+    margin: 0;
+    font-size: 0.7rem;
+    color: $grayLight-color;
+}
+  
+.timeline-card p {
+    margin: 2px 0;
+    font-size: 0.6rem;
+    color: $grayLight-color;
+}
+  
+/* Estilos do Modal */
+.v-dialog__content {
+    background-color: $white-color;
+}
+  
+.modalCareer{
+    background: $white-color;
+    color: $black-color !important;
+    font-size: 0.8rem;
+}
+  
+
+
+@media (max-width: 599px) {
+    .containerCareer {
+        background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.4), /* Cor preta com opacidade 50% no topo */
+            rgba(0, 0, 0, 0.4) /* Cor preta com opacidade 50% no fundo */
+        ),
+        url('../../assets/imagens/config/fundo_careerMobile.jpg') no-repeat center center; /* Imagem de fundo */
+        background-size: cover;
+    }
+
+    .timeline-card-wrapper {
+      width: 100px;  
+    }
+  
+    .timeline-card{
+      margin-left: 0px;
+    }
+  
+    .above-line {
+      transform: translateY(-150px);
+    }  
+}

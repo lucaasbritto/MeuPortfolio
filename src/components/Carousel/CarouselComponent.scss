@@ -40,3 +40,10 @@
     height: 100%; 
     object-fit: cover; 
   }
+
+
+  @media (max-width: 599px) {
+    .my-carousel {
+      height: 30vh !important;
+    }
+  }

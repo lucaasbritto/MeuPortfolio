@@ -1,0 +1,43 @@
+.mobile-menu{
+    background: $black-color;
+  }
+
+  .v-card {
+    border-radius: 0px !important;
+    background: $black-color;
+    color: $white-color !important;
+  }
+
+  .drawer-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: $grayMedium-color;
+  }
+
+  .mobile-menu-item {
+    cursor: pointer;
+  }
+
+  .titleSessao {
+    flex-grow: 1;
+  }
+
+  .drawer-divider {
+    border-color: $white-color;
+    border-width: 1px; 
+  } 
+
+  .drawer-footer{
+    background: $black-color;
+  }
+
+  .drawer-footer-list-item {
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+  }
+
+  .drawer-footer-list-item-content {
+    flex: 1; 
+  }

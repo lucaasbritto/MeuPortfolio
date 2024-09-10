@@ -7,7 +7,8 @@
             class="menu-item"
             @mouseover="hover = item.title"
             @mouseleave="hover = null"
-            @click="handleClick(item)"
+            
+            @click="scrollToSection(item.section)"
         >
             <v-list-item-content>
             <v-list-item-title :class="{ 'active': hover === item.title }">
@@ -20,14 +21,14 @@
 </template>
 
 <script>
-//CSS 
-import './MenuComponent.scss';
-import './MenuComponent_mobile.scss';
-import './MenuComponent_tablet.scss';
-// JS
+
 import MenuComponentScript from './MenuComponent.js';
 
 export default {
     ...MenuComponentScript,
 };
 </script>
+
+<style lang="scss">
+    @import './MenuComponent.scss'; 
+</style>

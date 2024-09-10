@@ -1,26 +1,25 @@
 <template>
   <v-app>
-    <InfoBar></InfoBar>
     <HeaderComponent></HeaderComponent>
-    <v-main>
-      <BodySystem></BodySystem>
-      <router-view/>
+    
+    <v-main style="margin:0">
+      <router-view></router-view>
     </v-main>
+
+    <FooterSection></FooterSection>
   </v-app>
 </template>
 
 <script>
-import InfoBar from './components/InfoBar/InfoBar.vue';
 import HeaderComponent from './components/HeaderComponent/HeaderComponent.vue';
-import BodySystem from './components/BodySystem/BodySystem.vue';
-
+import FooterSection from './components/Footer/FooterSection.vue';
 export default {
   name: 'App',
   components: {
-    InfoBar,
-    HeaderComponent,
-    BodySystem,
+    HeaderComponent,    
+    FooterSection,
   },
+  
   data() {
    
   },  

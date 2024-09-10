@@ -1,9 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faster+One&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    font-family: "Saira", sans-serif; 
+}
+
+$digital-text: "VT323", monospace;
+$title-text: "Cinzel Decorative", sans-serif;
+
+$white-color: #ffffff;
+$orange-color: #ff6c2a ;
+$black-color: #000000;
+$blackLight-color: #181818;
+$grayMedium-color: #101010;
+$grayDark-color: #232323;
+$grayLight-color: #333333;
+$grayIntense-color: #201f1f;
 
 
-$info-text : "Concert One", sans-serif;
 
-$red-color: #a60404;
-$redDark-color: #2f0000;
-$white-color: #f5f5f5;
+// Titulo de sessão
+.titleSessao {
+    font-size: 1.8rem;
+    color: $orange-color;
+    text-align: center;
+    font-weight: bold;
+}
+
+.line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// Linha no titulo da sessao
+.line {
+    flex: 1;
+    height: 1px;
+    background-color: $orange-color;
+    margin: 0 10px;
+}
 
