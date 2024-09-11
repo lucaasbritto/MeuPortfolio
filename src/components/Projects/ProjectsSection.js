@@ -16,8 +16,8 @@ export default {
               { image: require('@/assets/imagens/projetos/asaas/imagem_1.png'), },
               { image: require('@/assets/imagens/projetos/asaas/imagem_2.png'), },
           ],
-          link: 'https://github.com/lucaasbritto',
-          linkgit: 'https://github.com/lucaasbritto', 
+          link: 'https://github.com/lucaasbritto/Pagamento-api-asaas-back',
+          linkgit: 'https://github.com/lucaasbritto/Pagamento-api-asaas-back', 
           technologies: ['PHP', 'Laravel', 'API Asaas', 'Vue Js', 'VuetiFy', 'CSS']
         },
         {
@@ -29,8 +29,8 @@ export default {
               { image: require('@/assets/imagens/projetos/portfolio/imagem_1.png'), },
               { image: require('@/assets/imagens/projetos/portfolio/imagem_2.png'), },
           ],
-          link: 'https://github.com/lucaasbritto',
-          linkgit: 'https://github.com/lucaasbritto',
+          link: 'https://github.com/lucaasbritto/MeuPortfolio',
+          linkgit: 'https://github.com/lucaasbritto/MeuPortfolio',
           technologies: ['Vue Js', 'Vuetify', 'Sass']
         },
         {
@@ -42,8 +42,8 @@ export default {
               { image: require('@/assets/imagens/projetos/carteira_digital/imagem_1.png'), },
               { image: require('@/assets/imagens/projetos/carteira_digital/imagem_2.png'), },
           ],
-          link: 'https://github.com/lucaasbritto',
-          linkgit: 'https://github.com/lucaasbritto',
+          link: 'https://github.com/lucaasbritto/Carteira-digital-back',
+          linkgit: 'https://github.com/lucaasbritto/Carteira-digital-back',
           technologies: ['Laravel', 'Vue.js', 'Vuetify', 'MySql', 'CSS', 'API Rest']
         },          
         {
@@ -55,8 +55,8 @@ export default {
               { image: require('@/assets/imagens/projetos/carne_financeiro/imagem_1.png'), },
               { image: require('@/assets/imagens/projetos/carne_financeiro/imagem_2.png'), },
           ],
-          link: 'https://github.com/lucaasbritto',
-          linkgit: 'https://github.com/lucaasbritto',
+          link: 'https://github.com/lucaasbritto/carne-financeiro-back',
+          linkgit: 'https://github.com/lucaasbritto/carne-financeiro-back',
           technologies: ['PHP', 'Laravel', 'MySQL', 'Vue Js','Vuetify']
         },
         {
@@ -68,8 +68,8 @@ export default {
               { image: require('@/assets/imagens/projetos/plano_ferias/imagem_1.png'), },
               { image: require('@/assets/imagens/projetos/plano_ferias/imagem_2.png'), },
           ],
-          link: 'https://github.com/lucaasbritto',
-          linkgit: 'https://github.com/lucaasbritto',
+          link: 'https://github.com/lucaasbritto/Plano-ferias-back',
+          linkgit: 'https://github.com/lucaasbritto/Plano-ferias-back',
           technologies: ['PHP', 'Laravel', 'Sanctum', 'MySQL', 'Vue Js', 'Vuetify']
         },          
         {
