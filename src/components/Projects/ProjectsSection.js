@@ -6,7 +6,21 @@ export default {
 
   data() {
     return {
-      projects: [          
+      projects: [
+        {
+          title: 'API Futebol',
+          description: 'API de estatísticas do Campeonato Brasileiro! Com ela, você pode acessar a tabela de classificação, informações sobre times, jogos, resultados, artilheiros e assistências. E o melhor: escolha seu time do coração e veja o layout personalizado com as cores do clube, além de destacar a sua próxima partida!',
+          image:require('@/assets/imagens/projetos/futebol/imagem_capa.png'),
+          galery: [
+              { image: require('@/assets/imagens/projetos/futebol/imagem_capa.png'), },
+              { image: require('@/assets/imagens/projetos/futebol/imagem_1.png'), },
+              { image: require('@/assets/imagens/projetos/futebol/imagem_2.png'), },
+              { image: require('@/assets/imagens/projetos/futebol/imagem_3.png'), },
+          ],
+          link: 'https://lucasbritto.com/football/',
+          linkgit: 'https://github.com/lucaasbritto/Campeonato-back', 
+          technologies: ['Laravel', 'API Football', 'Swagger', 'Vue Js', 'VuetiFy', 'CSS']
+        },          
         {
           title: 'Pagamento com API Asaas',
           description: 'Aplicação web integrada com a API do Asaas, uma plataforma de pagamentos que oferece soluções completas para gerenciamento financeiro. O sistema foi desenvolvido para automatizar e simplificar processos de pagamento e cobrança, permitindo a criação e gestão de clientes, geração de cobranças, e recebimento de pagamentos por diferentes métodos, incluindo boleto bancário, cartão de crédito e QR Codes para pagamentos via Pix.',
@@ -72,17 +86,17 @@ export default {
           linkgit: 'https://github.com/lucaasbritto/Plano-ferias-back',
           technologies: ['PHP', 'Laravel', 'Sanctum', 'MySQL', 'Vue Js', 'Vuetify']
         },          
-        {
-          title: 'Site da Skorpion (Em Construção)',
-          description: 'Em desenvolvimento em breve disponivel...',
-          image: require('@/assets/imagens/projetos/skorpion/imagem_capa.jpg'),
-          galery: [
-              { image: require('@/assets/imagens/projetos/skorpion/imagem_capa.jpg'), },
-          ],
-          link: '',
-          linkgit: '',  
-          technologies: ['Em Desenvolvimento...']
-        },
+        // {
+        //   title: 'Site da Skorpion (Em Construção)',
+        //   description: 'Em desenvolvimento em breve disponivel...',
+        //   image: require('@/assets/imagens/projetos/skorpion/imagem_capa.jpg'),
+        //   galery: [
+        //       { image: require('@/assets/imagens/projetos/skorpion/imagem_capa.jpg'), },
+        //   ],
+        //   link: '',
+        //   linkgit: '',  
+        //   technologies: ['Em Desenvolvimento...']
+        // },
       ],
       
       carouselSize: {
