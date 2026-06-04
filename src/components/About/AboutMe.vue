@@ -1,111 +1,142 @@
 <template>
-    <v-container fluid class="pa-5 container-aboutMe">
-        <div id="about" class="section">
-        <v-row  class="mb-5">
-          <v-col cols="12" data-aos="fade-up" data-aos-duration="1000">
-            <v-card class="about-card" elevation="4">
-              <v-card-title class="titleSessao">
-                <span class="line-container">
-                  <span class="line"></span>
-                        Conheça mais sobre mim
-                  <span class="line"></span>
-                </span>
-              </v-card-title>
+  <div class="tech-section-wrapper">
+    <section id="about" class="tech-section">
 
-              <v-card-text class="about-text">
-                <p>
-                  Olá! Meu nome é Lucas Britto. Sou formado em Ciência da Computação e atuo como <span class="text-destaque">Desenvolvedor PHP Full Stack </span>
-                  com mais de <span class="text-destaque"> 8 anos </span> de experiência. 
-                  Minha jornada profissional me proporcionou um sólido conhecimento e habilidades práticas em 
-                  várias tecnologias e ferramentas.
-                </p>
-                <p>
-                    Tenho uma experiência significativa com <span class="text-destaque">PHP e Laravel</span>, onde desenvolvi e mantive sistemas web complexos. 
-                    Além dessas tecnologias, também trabalhei extensivamente com <span class="text-destaque">Vue.js e Angular</span>, 
-                    criando interfaces de usuário interativas e responsivas.</p>
-                <p v-bind:class="{ 'expanded': isExpanded || !isMobile }" class="about-text-truncated">
-                    No que diz respeito a bancos de dados, tenho familiaridade com uma variedade de sistemas, 
-                    incluindo MySQL, Oracle, MongoDB, Elasticsearch e PostgreSQL. Essa experiência me permite 
-                    escolher e otimizar a melhor solução de banco de dados para cada projeto específico.
-                </p>
-                <p v-if="!isMobile || isExpanded">
-                    Além do desenvolvimento web, minha experiência se estende a outras tecnologias importantes, 
-                    como JavaScript, jQuery, Ajax, TypeScript, Docker, APIs REST, Scrum, Kanban, Git, Bootstrap, 
-                    Vuetify, CSS, SaaS, Less e Selenium. Essas ferramentas e metodologias enriquecem minha abordagem 
-                    ao desenvolvimento de software e à gestão de projetos.
-                </p>
-                <p v-if="!isMobile || isExpanded">
-                    Estou sempre animado para enfrentar novos desafios e contribuir para projetos inovadores que 
-                    possam fazer uma diferença significativa no mundo da tecnologia.
-                </p>
-                <v-btn @click="toggleExpand" class="d-md-none expand-button">
-                    {{ isExpanded ? 'Ver menos' : 'Ver mais' }}
-                </v-btn>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
+      <!-- Rede tecnológica animada (reutilizada da Home) -->
+      <NetworkBackground class="tech-network" />
 
-        <!-- Botão de Download do Currículo -->
-        <v-row class="mb-5" justify="center">
-          <v-col cols="auto" data-aos="fade-up" data-aos-duration="1000">
-            <v-btn              
-              dark
-              :href="pdfUrl"
-              download
-              class="mb-4"
-            >
-            <v-icon left>mdi-download</v-icon>
-              Download do Currículo
-            </v-btn>
-          </v-col>
-        </v-row>
-        
-        <!-- Seção de Tecnologias -->        
-        <v-row class="mt-5">
-          <v-col
-            v-for="(tech, index) in displayedTechnologies"
-            :key="index"
-            cols="4" sm="3" md="2"
-            class="d-flex align-center justify-center"
-            v-bind:class="{ 'd-none': !isTechExpanded && isMobile }"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-            data-aos-delay="200"            
-          >
-            <v-card class="tech-card" elevation="8">
-              <v-card-title class="text-center">
-                <v-icon large>{{ tech.icon }}</v-icon>
-              </v-card-title>
-              <v-card-subtitle class="text-center">
-                {{ tech.name }}
-              </v-card-subtitle>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row class="mt-5">
-        <v-col cols="12" class="text-center">
-          <v-btn @click="toggleTechExpand" class="d-md-none expand-button">
-            {{ isTechExpanded ? 'Ver menos tecnologias' : 'Ver mais tecnologias' }}
-          </v-btn>
-        </v-col>
-      </v-row>
-    </div>
-      </v-container>
+      <!-- Gradiente radial de fundo -->
+      <div class="tech-bg-glow"></div>
 
+      <!-- Cabeçalho -->
+      <div class="tech-header" :class="{ 'is-visible': visible }">
+        <p class="tech-label">STACK TÉCNICA</p>
+        <h2 class="tech-title">Tecnologias <span class="highlight">&</span> Especialidades</h2>
+        <p class="tech-subtitle">
+          Tecnologias utilizadas ao longo de mais de 9 anos desenvolvendo sistemas corporativos, integrações e soluções escaláveis.
+        </p>
+      </div>
 
+      <!-- Especialidades -->
+      <div class="specialties" :class="{ 'is-visible': visible }">
+        <div class="specialty-item" v-for="s in specialties" :key="s">
+          <span class="specialty-check">✓</span>
+          <span>{{ s }}</span>
+        </div>
+      </div>
+
+      <!-- Divisor -->
+      <div class="tech-divider" :class="{ 'is-visible': visible }"></div>
+
+      <!-- Cards -->
+      <div class="tech-grid">
+        <div
+          class="tech-card"
+          v-for="(cat, i) in categories"
+          :key="cat.title"
+          :class="{ 'is-visible': visible }"
+          :style="{ transitionDelay: visible ? `${420 + i * 70}ms` : '0ms' }"
+        >
+          <div class="tech-card-header">
+            <div class="tech-card-icon">
+              <v-icon size="18" color="#ff6c2a">{{ cat.icon }}</v-icon>
+            </div>
+            <h3 class="tech-card-title">{{ cat.title }}</h3>
+          </div>
+          <div class="tech-badges">
+            <span
+              v-for="item in cat.items"
+              :key="item"
+              class="tech-badge"
+              :class="{ 'tech-badge--highlight': highlighted.includes(item) }"
+            >{{ item }}</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
 </template>
 
 <script>
-import AbouteMeScript from './AboutMe.js';
+import NetworkBackground from '../HomeComponent/NetworkBackground.vue';
 
 export default {
-    ...AbouteMeScript,
-};
+  name: 'AboutMe',
+  components: { NetworkBackground },
 
+  data() {
+    return {
+      visible: false,
+      highlighted: ['PHP', 'Laravel', 'Vue.js', 'Angular', 'PostgreSQL', 'MySQL', 'Docker', 'APIs RESTful'],
+
+      specialties: [
+        'Sistemas Corporativos',
+        'APIs REST e Integrações',
+        'Arquitetura de Software',
+        'Desenvolvimento Full Stack',
+        'Automação e IA',
+      ],
+
+      categories: [
+        {
+          title: 'Linguagens & Frameworks',
+          icon: 'mdi-code-braces',
+          items: ['PHP', 'Laravel', 'CakePHP', 'JavaScript', 'Vue.js', 'Angular', 'React', 'TypeScript', 'jQuery', 'Python', 'Flutter'],
+        },
+        {
+          title: 'Frontend & UI',
+          icon: 'mdi-palette-outline',
+          items: ['Bootstrap', 'Vuetify', 'Quasar', 'Tailwind CSS'],
+        },
+        {
+          title: 'Bancos de Dados',
+          icon: 'mdi-database-outline',
+          items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Oracle', 'Neo4j', 'Elasticsearch', 'SQLite'],
+        },
+        {
+          title: 'Arquitetura & Integrações',
+          icon: 'mdi-hexagon-multiple-outline',
+          items: ['APIs RESTful', 'SOAP', 'Microserviços', 'Kafka', 'Redis'],
+        },
+        {
+          title: 'Engenharia de Software',
+          icon: 'mdi-layers-outline',
+          items: ['SOLID', 'Clean Architecture', 'Design Patterns', 'Clean Code', 'Modelagem de Dados'],
+        },
+        {
+          title: 'DevOps & Infraestrutura',
+          icon: 'mdi-server-network',
+          items: ['Docker', 'Git', 'GitLab', 'CI/CD', 'Swagger', 'Azure', 'AWS'],
+        },
+        {
+          title: 'Testes Automatizados',
+          icon: 'mdi-test-tube',
+          items: ['PHPUnit', 'Playwright', 'Selenium', 'Vitest'],
+        },
+        {
+          title: 'Inteligência Artificial & Automação',
+          icon: 'mdi-brain',
+          items: ['n8n', 'Chatbots', 'OpenAI', 'Claude', 'Cursor', 'Supabase'],
+        },
+      ],
+    };
+  },
+  mounted() {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          this.visible = true;
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -100px 0px' }
+    );
+    observer.observe(this.$el);
+  },
+};
 </script>
 
-<style lang="scss" scoped>
-    @import './AbouteMe.scss';
-
+<style lang="scss">
+  @import './AbouteMe.scss';
 </style>
