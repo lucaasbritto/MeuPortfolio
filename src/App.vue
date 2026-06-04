@@ -2,7 +2,7 @@
   <v-app>
     <HeaderComponent></HeaderComponent>
     
-    <v-main style="margin:0">
+    <v-main style="margin:0; background:#080808;">
       <router-view></router-view>
     </v-main>
 

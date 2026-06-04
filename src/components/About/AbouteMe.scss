@@ -1,145 +1,316 @@
-.container-aboutMe{
-    background: $black-color;
+@import '@/assets/styles/variables.scss';
+
+/* ===================== WRAPPER ===================== */
+.tech-section-wrapper {
+  background: #080808;
+  width: 100%;
+  position: relative;
 }
 
-.about-card {
-    background-color: $black-color;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* ===================== SECTION ===================== */
+.tech-section {
+  position: relative;
+  padding: 96px 48px;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
-.about-text {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: $white-color;
+/* ===================== FUNDO DECORATIVO ===================== */
+.tech-bg-glow {
+  position: absolute;
+  top: -100px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255,108,42,0.06) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.tech-card {
-    border-radius: 40px !important;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    text-align: center;
-    background: $blackLight-color;    
+/* Rede tecnológica — cobre toda a seção */
+.tech-network {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  opacity: 0.12 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%) !important;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%) !important;
+}
+
+/* ===================== ANIMAÇÕES DE ENTRADA ===================== */
+
+/* Header — clip reveal de baixo para cima */
+.tech-header {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  transition-delay: 0ms;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
   }
-
-.tech-card:hover {
-    transform: scale(1.05);
-    background-color: $orange-color; 
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-.tech-card .v-icon {
+/* Especialidades — cada item desliza da esquerda */
+.specialties {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1),
+              transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  transition-delay: 180ms;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Divisor — expande da esquerda */
+.tech-divider {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: opacity 0.5s ease,
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  transition-delay: 320ms;
+
+  &.is-visible {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Cards — zoom + fade escalonado */
+.tech-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  transition: opacity 0.55s cubic-bezier(0.16,1,0.3,1),
+              transform 0.55s cubic-bezier(0.16,1,0.3,1),
+              /* hover transitions separados */
+              border-color 0.25s,
+              background 0.25s,
+              box-shadow 0.25s;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===================== CABEÇALHO ===================== */
+.tech-header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.tech-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  color: $orange-color;
+  margin-bottom: 12px;
+}
+
+.tech-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: $white-color;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+
+  .highlight { color: $orange-color; }
+}
+
+.tech-subtitle {
+  font-size: 0.93rem;
+  color: rgba(255,255,255,0.42);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+/* ===================== ESPECIALIDADES ===================== */
+.specialties {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 36px;
+  margin-bottom: 44px;
+}
+
+.specialty-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.2px;
+}
+
+.specialty-check {
+  color: $orange-color;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===================== DIVISOR ===================== */
+.tech-divider {
+  position: relative;
+  z-index: 1;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(255,108,42,0.20) 20%,
+    rgba(255,108,42,0.20) 80%,
+    transparent 100%
+  );
+  margin-bottom: 48px;
+}
+
+/* ===================== GRID ===================== */
+.tech-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+/* ===================== CARD ===================== */
+.tech-card {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: default;
+
+  &.is-visible:hover {
+    border-color: rgba(255,108,42,0.22);
+    background: rgba(255,108,42,0.025);
+    box-shadow: 0 4px 24px rgba(255,108,42,0.07),
+                0 1px 0 rgba(255,108,42,0.10) inset;
+    transform: translateY(-2px) scale(1);
+  }
+}
+
+.tech-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tech-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  background: rgba(255,108,42,0.10);
+  border: 1px solid rgba(255,108,42,0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tech-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+  letter-spacing: 0.1px;
+  line-height: 1.3;
+}
+
+/* ===================== BADGES ===================== */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Badge padrão */
+.tech-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border: 1px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.03);
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.48);
+  letter-spacing: 0.1px;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: rgba(255,108,42,0.25);
+    color: rgba(255,255,255,0.80);
+    background: rgba(255,108,42,0.05);
+  }
+}
+
+/* Badge destaque — tecnologias principais */
+.tech-badge--highlight {
+  border-color: rgba(255,108,42,0.30);
+  background: rgba(255,108,42,0.07);
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  box-shadow: 0 0 8px rgba(255,108,42,0.10);
+
+  &:hover {
+    border-color: rgba(255,108,42,0.50);
+    background: rgba(255,108,42,0.12);
     color: $white-color;
+    box-shadow: 0 0 14px rgba(255,108,42,0.18);
+  }
 }
 
-.tech-card .v-card-subtitle {
-    font-size: 0.5rem;
-    font-weight: bold;
-    color: $white-color;
-}
-
-
-.v-btn {
-    border-radius: 25px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    background: $orange-color;
-}
-
-.v-btn:hover {
-    background-color: $white-color;
-}
-
-.text-destaque{
-    color:$orange-color; 
-    font-weight: bold;
-}
-
-.expand-button {
-    margin-top: 16px;
-    text-transform: none;
-    font-size: 0.9rem;
-    color: $orange-color;
-    background: $grayDark-color !important;
-    font-weight: bold;
-    background: transparent;
-    border: none;    
-}
-
-.expand-button:hover {
-    cursor: pointer;
-    color: $orange-color;
-    text-decoration: underline;
-}
-
-
-// MOBILE
+/* ===================== RESPONSIVE ===================== */
 @media (max-width: 599px) {
-    .titleSessao {
-        font-size: 1.2rem;        
-    }
+  .tech-section   { padding: 64px 20px; }
+  .tech-title     { font-size: 1.8rem; }
+  .tech-grid      { grid-template-columns: 1fr; }
+  .specialties    { gap: 8px 20px; justify-content: center; }
+  .specialty-item { justify-content: center; }
 
-    .about-text {
-        text-align: center;
-    }
-
-    /* Exibir ate X quantidade de letras */
-    .about-text-truncated {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        position: relative;
-    }
-
-    .about-text-truncated::after {
-        content: '...';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: $black-color;
-        padding-left: 10px;
-    }
-
-    /* Remove o limite de linhas quando expandido */
-    .about-text-truncated.expanded {
-        -webkit-line-clamp: unset; 
-      }
+  /* centraliza todo o conteúdo no mobile */
+  .tech-header    { text-align: center; }
+  .tech-card-header { justify-content: center; }
+  .tech-badges    { justify-content: center; }
+  .tech-card      { text-align: center; align-items: center; }
+  .tech-card-title { text-align: center; }
 }
 
-
-// TABLET
 @media (min-width: 600px) and (max-width: 959px) {
-    .titleSessao {
-        font-size: 1.4rem;        
-    }
+  .tech-section { padding: 72px 28px; }
+  .tech-grid    { grid-template-columns: repeat(2, 1fr); }
 
-    .about-text {
-        text-align: center;
-    }
+  .tech-header    { text-align: center; }
+  .tech-card-header { justify-content: center; }
+  .tech-badges    { justify-content: center; }
+  .tech-card      { text-align: center; align-items: center; }
+}
 
-    /* Exibir ate X quantidade de letras */
-    .about-text-truncated {
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        position: relative;
-    }
-
-    .about-text-truncated::after {
-        content: '...';
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        background: $black-color;
-        padding-left: 10px;
-    }
-
-    /* Remove o limite de linhas quando expandido */
-    .about-text-truncated.expanded {
-        -webkit-line-clamp: unset; 
-      }
+@media (min-width: 960px) and (max-width: 1279px) {
+  .tech-grid { grid-template-columns: repeat(3, 1fr); }
 }
