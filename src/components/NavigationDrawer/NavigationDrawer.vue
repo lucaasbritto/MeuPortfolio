@@ -23,15 +23,10 @@
           <v-list-item
             v-for="item in menuItems"
             :key="item.title"
+            :title="item.title"
             class="mobile-menu-item"
             @click="scrollToSection(item.section)"
-          >
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ item.title }}
-              </v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+          />
         </v-list>
       </v-card>
     </v-navigation-drawer>
