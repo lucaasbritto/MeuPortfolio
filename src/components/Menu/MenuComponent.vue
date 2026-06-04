@@ -1,34 +1,36 @@
 <template>
-    <v-col cols="12" class="menu-container">
-        <v-list class="menu-list" v-show="!drawer">
-        <v-list-item
-            v-for="item in menuItems"
-            :key="item.title"
-            class="menu-item"
-            @mouseover="hover = item.title"
-            @mouseleave="hover = null"
-            
-            @click="scrollToSection(item.section)"
-        >
-            <v-list-item-content>
-            <v-list-item-title :class="{ 'active': hover === item.title }">
-                {{ item.title }}
-            </v-list-item-title>
-            </v-list-item-content>
-        </v-list-item>
-        </v-list>
-    </v-col>
+  <nav class="menu-nav">
+    <a
+      v-for="item in menuItems"
+      :key="item.section"
+      class="menu-link"
+      :class="{ active: activeSection === item.section }"
+      @click.prevent="scrollToSection(item.section)"
+      href="#"
+    >
+      {{ item.title }}
+    </a>
+  </nav>
 </template>
 
 <script>
-
-import MenuComponentScript from './MenuComponent.js';
-
 export default {
-    ...MenuComponentScript,
+  name: 'MenuComponent',
+
+  props: {
+    menuItems: { type: Array, required: true },
+    activeSection: { type: String, default: 'home' },
+  },
+
+  methods: {
+    scrollToSection(section) {
+      const el = document.getElementById(section);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    },
+  },
 };
 </script>
 
-<style lang="scss">
-    @import './MenuComponent.scss'; 
+<style lang="scss" scoped>
+  @import './MenuComponent.scss';
 </style>

@@ -18,46 +18,17 @@
           <v-card-title class="title">Entre em Contato</v-card-title>
           <v-card-subtitle class="info">
             <v-list class="info-list">
-              <v-list-item class="contact-item">                
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <v-list-item-icon class="icon">
-                      <v-icon>mdi-email</v-icon>
-                    </v-list-item-icon>
-                    <a :href="`mailto:${email}`">{{ email }}</a>
-                  </v-list-item-title>
-                </v-list-item-content>
+              <v-list-item class="contact-item" prepend-icon="mdi-email">
+                <a :href="`mailto:${email}`">{{ email }}</a>
               </v-list-item>
-              <v-list-item class="contact-item">                
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <v-list-item-icon class="icon">
-                      <v-icon>mdi-linkedin</v-icon>
-                    </v-list-item-icon>
-                    <a :href="linkedin" target="_blank">/lucaas-britto</a>
-                  </v-list-item-title>
-                </v-list-item-content>
+              <v-list-item class="contact-item" prepend-icon="mdi-linkedin">
+                <a :href="linkedin" target="_blank">/lucaas-britto</a>
               </v-list-item>
-              <v-list-item class="contact-item">                
-                <v-list-item-content>
-                  <v-list-item-title>
-                    <v-list-item-icon class="icon">
-                      <v-icon>mdi-github</v-icon>
-                    </v-list-item-icon>
-                    <a :href="github" target="_blank">/lucaasbritto</a>
-                  </v-list-item-title>
-                </v-list-item-content>
+              <v-list-item class="contact-item" prepend-icon="mdi-github">
+                <a :href="github" target="_blank">/lucaasbritto</a>
               </v-list-item>
-              <!-- Adicionando Localização -->
-              <v-list-item class="contact-item">                
-                <v-list-item-content>                  
-                  <v-list-item-title>
-                      <v-list-item-icon class="icon">
-                        <v-icon>mdi-map-marker</v-icon>
-                      </v-list-item-icon>
-                  <span>Salvador, Bahia</span>
-                </v-list-item-title>
-                </v-list-item-content>
+              <v-list-item class="contact-item" prepend-icon="mdi-map-marker">
+                <span>Salvador, Bahia</span>
               </v-list-item>
             </v-list>
           </v-card-subtitle>
