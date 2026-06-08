@@ -1,9 +1,9 @@
 <template>
     <div class="body_system">      
       <HomeComponent/>
+      <CareerTimeline/>
       <AboutMe/>
       <ProjectsSection/>
-      <CareerTimeline/>
       <ContactSection/>    
     </div>
 </template>

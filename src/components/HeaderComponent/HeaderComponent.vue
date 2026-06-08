@@ -69,21 +69,24 @@ export default {
 
     const menuItems = [
       { title: 'Início',      section: 'home' },
-      { title: 'Experiência', section: 'career' },
-      { title: 'Projetos',    section: 'project' },
+      { title: 'Experiências', section: 'career' },
       { title: 'Tecnologias', section: 'about' },
+      { title: 'Projetos',    section: 'project' },
       { title: 'Contato',     section: 'contact' },
     ];
 
     const onScroll = () => {
-      const sections = menuItems.map(i => document.getElementById(i.section)).filter(Boolean);
-      const scrollY = window.scrollY + 80;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        if (sections[i].offsetTop <= scrollY) {
-          activeSection.value = menuItems[i].section;
-          break;
+      const threshold = window.innerHeight * 0.35;
+      let current = menuItems[0].section;
+      for (const item of menuItems) {
+        const el = document.getElementById(item.section);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= threshold) {
+          current = item.section;
         }
       }
+      activeSection.value = current;
     };
 
     onMounted(() => window.addEventListener('scroll', onScroll));
