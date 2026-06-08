@@ -1,143 +1,166 @@
-import CarouselComponent from '../Carousel/CarouselComponent.vue';
 export default {
-  components: {    
-      CarouselComponent,
-  },
+  name: 'ProjectsSection',
 
   data() {
     return {
+      visible:         false,
+      activeTab:       'all',
+      modalOpen:       false,
+      modalSlide:      0,
+      selectedProject: {},
+
+      tabs: [
+        { key: 'all',          label: 'Todos',                  count: 6 },
+        { key: 'professional', label: 'Projetos Profissionais', count: 3 },
+        { key: 'case',         label: 'Cases Técnicos',         count: 3 },
+      ],
+
       projects: [
+        /* ===== PROFISSIONAIS ===== */
         {
+          type: 'professional',
           title: 'API Futebol',
-          description: 'API de estatísticas do Campeonato Brasileiro! Com ela, você pode acessar a tabela de classificação, informações sobre times, jogos, resultados, artilheiros e assistências. E o melhor: escolha seu time do coração e veja o layout personalizado com as cores do clube, além de destacar a sua próxima partida!',
-          image:require('@/assets/imagens/projetos/futebol/imagem_capa.png'),
+          status: 'Online',
+          statusType: 'live',
+          description: 'Estatísticas do Campeonato Brasileiro com layout personalizado por clube, tabela, artilheiros e próximos jogos.',
+          fullDescription: 'Plataforma de estatísticas do Campeonato Brasileiro. Tabela de classificação, informações sobre times, jogos, resultados, artilheiros e assistências. Layout personalizado com as cores do clube escolhido.',
+          image: require('@/assets/imagens/projetos/futebol/imagem_capa.png'),
           galery: [
-              { image: require('@/assets/imagens/projetos/futebol/imagem_capa.png'), },
-              { image: require('@/assets/imagens/projetos/futebol/imagem_1.png'), },
-              { image: require('@/assets/imagens/projetos/futebol/imagem_2.png'), },
-              { image: require('@/assets/imagens/projetos/futebol/imagem_3.png'), },
+            { image: require('@/assets/imagens/projetos/futebol/imagem_capa.png') },
+            { image: require('@/assets/imagens/projetos/futebol/imagem_1.png') },
+            { image: require('@/assets/imagens/projetos/futebol/imagem_2.png') },
+            { image: require('@/assets/imagens/projetos/futebol/imagem_3.png') },
           ],
+          highlights: ['Tabela de classificação em tempo real', 'Artilheiros e assistências', 'Layout por clube com cores personalizadas'],
           link: 'https://lucasbritto.com/football/',
-          linkgit: 'https://github.com/lucaasbritto/Campeonato-back', 
-          technologies: ['Laravel', 'API Football', 'Swagger', 'Vue Js', 'VuetiFy', 'CSS']
-        },          
-        {
-          title: 'Pagamento com API Asaas',
-          description: 'Aplicação web integrada com a API do Asaas, uma plataforma de pagamentos que oferece soluções completas para gerenciamento financeiro. O sistema foi desenvolvido para automatizar e simplificar processos de pagamento e cobrança, permitindo a criação e gestão de clientes, geração de cobranças, e recebimento de pagamentos por diferentes métodos, incluindo boleto bancário, cartão de crédito e QR Codes para pagamentos via Pix.',
-          image:require('@/assets/imagens/projetos/asaas/imagem_capa.png'),
-          galery: [
-              { image: require('@/assets/imagens/projetos/asaas/imagem_capa.png'), },
-              { image: require('@/assets/imagens/projetos/asaas/imagem_1.png'), },
-              { image: require('@/assets/imagens/projetos/asaas/imagem_2.png'), },
-          ],
-          link: 'https://github.com/lucaasbritto/Pagamento-api-asaas-back',
-          linkgit: 'https://github.com/lucaasbritto/Pagamento-api-asaas-back', 
-          technologies: ['PHP', 'Laravel', 'API Asaas', 'Vue Js', 'VuetiFy', 'CSS']
+          linkgit: 'https://github.com/lucaasbritto/Campeonato-back',
+          technologies: ['Laravel', 'Vue.js', 'Vuetify', 'API Football', 'Swagger', 'MySQL'],
         },
         {
+          type: 'professional',
           title: 'Portfólio Lucas Britto',
-          description: 'Projeto criado para apresentar meus trabalhos e habilidades aos visitantes interessados em conhecer mais sobre mim.',
-          image:require('@/assets/imagens/projetos/portfolio/imagem_capa.png'),
+          status: 'Online',
+          statusType: 'live',
+          description: 'Portfólio pessoal com design system premium, animações de entrada, seção de experiência interativa e contato.',
+          fullDescription: 'Portfólio pessoal desenvolvido com Vue.js e design system próprio, apresentando projetos, carreira e stack técnica com visual premium inspirado em SaaS moderno.',
+          image: require('@/assets/imagens/projetos/portfolio/imagem_capa.png'),
           galery: [
-              { image: require('@/assets/imagens/projetos/portfolio/imagem_capa.png'), },
-              { image: require('@/assets/imagens/projetos/portfolio/imagem_1.png'), },
-              { image: require('@/assets/imagens/projetos/portfolio/imagem_2.png'), },
+            { image: require('@/assets/imagens/projetos/portfolio/imagem_capa.png') },
+            { image: require('@/assets/imagens/projetos/portfolio/imagem_1.png') },
+            { image: require('@/assets/imagens/projetos/portfolio/imagem_2.png') },
           ],
+          highlights: ['Design system próprio', 'Animações com IntersectionObserver', 'Responsivo e performático'],
           link: 'https://github.com/lucaasbritto/MeuPortfolio',
           linkgit: 'https://github.com/lucaasbritto/MeuPortfolio',
-          technologies: ['Vue Js', 'Vuetify', 'Sass']
+          technologies: ['Vue.js', 'Vuetify', 'SCSS'],
         },
         {
-          title: 'Carteira Digital',
-          description: 'Este projeto é uma aplicação web desenvolvida com Laravel e Vue.js que simula a funcionalidade de uma carteira financeira digital. O sistema permite que usuários realizem transferências de dinheiro, consultem a cotação do dólar via uma API externa e visualizem o histórico de transações. A interface foi projetada para ser intuitiva e fácil de usar, oferecendo uma experiência de usuário fluida e responsiva.',
-          image: require('@/assets/imagens/projetos/carteira_digital/imagem_capa.png'),
+          type: 'professional',
+          title: 'Sistema de Gestão Comercial',
+          status: 'Em Desenvolvimento',
+          statusType: 'dev',
+          description: 'Plataforma web para gestão de clientes, contratos de crédito consignado e controle de equipe com funil de vendas e métricas em tempo real.',
+          fullDescription: 'Plataforma web para gestão de clientes, contratos de crédito consignado e controle de equipe. O sistema permite acompanhar todo o funil de vendas — da prospecção à efetivação do contrato — com controle de ponto eletrônico e dashboard de métricas em tempo real.',
+          image: require('@/assets/imagens/projetos/expertise/imagem_capa.png'),
           galery: [
-              { image: require('@/assets/imagens/projetos/carteira_digital/imagem_capa.png'), },
-              { image: require('@/assets/imagens/projetos/carteira_digital/imagem_1.png'), },
-              { image: require('@/assets/imagens/projetos/carteira_digital/imagem_2.png'), },
+            { image: require('@/assets/imagens/projetos/expertise/imagem_capa.png') },
+            { image: require('@/assets/imagens/projetos/expertise/imagem_1.png') },
+            { image: require('@/assets/imagens/projetos/expertise/imagem_2.png') },
+            { image: require('@/assets/imagens/projetos/expertise/imagem_3.png') },
           ],
-          link: 'https://github.com/lucaasbritto/Carteira-digital-back',
-          linkgit: 'https://github.com/lucaasbritto/Carteira-digital-back',
-          technologies: ['Laravel', 'Vue.js', 'Vuetify', 'MySql', 'CSS', 'API Rest']
-        },          
-        {
-          title: 'Carnê Financeiro',
-          description: 'API fornece funcionalidades para criar e recuperar carnês de pagamento. Os carnês podem ser divididos em parcelas com base nos parâmetros fornecidos, e a API pode recuperar parcelas de um carnê existente.',
-          image:require('@/assets/imagens/projetos/carne_financeiro/imagem_capa.png'),
-          galery: [
-              { image: require('@/assets/imagens/projetos/carne_financeiro/imagem_capa.png'), },
-              { image: require('@/assets/imagens/projetos/carne_financeiro/imagem_1.png'), },
-              { image: require('@/assets/imagens/projetos/carne_financeiro/imagem_2.png'), },
-          ],
-          link: 'https://github.com/lucaasbritto/carne-financeiro-back',
-          linkgit: 'https://github.com/lucaasbritto/carne-financeiro-back',
-          technologies: ['PHP', 'Laravel', 'MySQL', 'Vue Js','Vuetify']
+          highlights: ['Funil de vendas completo', 'Controle de ponto eletrônico', 'Dashboard de métricas em tempo real', 'Gestão de contratos consignados'],
+          link: '',
+          linkgit: '',
+          technologies: ['Laravel','Vue.js', 'TypeScript', 'Quasar', 'Pinia',  'MySQL', 'Docker', 'JWT', 'REST API', 'NGINX'],
         },
-        {
-          title: 'Plano de Férias',
-          description: 'O Gerenciador de Planos de Férias é uma aplicação robusta projetada para simplificar o planejamento e o gerenciamento das suas férias. Este sistema intuitivo oferece uma gama completa de funcionalidades para criar, editar, excluir e visualizar planos de férias de maneira eficiente. Além disso, a aplicação permite o download dos planos em formato PDF, facilitando o acesso e compartilhamento das informações.',
-          image:require('@/assets/imagens/projetos/plano_ferias/imagem_capa.png'),
-          galery: [
-              { image: require('@/assets/imagens/projetos/plano_ferias/imagem_capa.png'), },
-              { image: require('@/assets/imagens/projetos/plano_ferias/imagem_1.png'), },
-              { image: require('@/assets/imagens/projetos/plano_ferias/imagem_2.png'), },
-          ],
-          link: 'https://github.com/lucaasbritto/Plano-ferias-back',
-          linkgit: 'https://github.com/lucaasbritto/Plano-ferias-back',
-          technologies: ['PHP', 'Laravel', 'Sanctum', 'MySQL', 'Vue Js', 'Vuetify']
-        },          
-        // {
-        //   title: 'Site da Skorpion (Em Construção)',
-        //   description: 'Em desenvolvimento em breve disponivel...',
-        //   image: require('@/assets/imagens/projetos/skorpion/imagem_capa.jpg'),
-        //   galery: [
-        //       { image: require('@/assets/imagens/projetos/skorpion/imagem_capa.jpg'), },
-        //   ],
-        //   link: '',
-        //   linkgit: '',  
-        //   technologies: ['Em Desenvolvimento...']
-        // },
-      ],
-      
-      carouselSize: {
-        width: '100%', 
-        height: '250px !important'
-      },
 
-      imageDialog: false,
-      largeImageDialog: false,
-      selectedImage: '',        
-      projectDialog: false,      
-      selectedProject: {}
+        /* ===== CASES ===== */
+        {
+          type: 'case',
+          title: 'Sistema de Gestão de Tarefas',
+          status: 'Offline',
+          statusType: 'offline',
+          description: 'Plataforma web para gerenciamento de tarefas e equipes com suporte a múltiplas empresas, filtros avançados e notificações automáticas.',
+          fullDescription: 'Plataforma web para gerenciamento de tarefas e equipes com suporte a múltiplas empresas. O sistema permite criar, acompanhar e priorizar demandas — com filtros avançados, exportação de relatórios e notificações automáticas por e-mail ao criar ou concluir uma tarefa.',
+          image: require('@/assets/imagens/projetos/smartleader/imagem_capa.png'),
+          galery: [
+            { image: require('@/assets/imagens/projetos/smartleader/imagem_capa.png') },
+            { image: require('@/assets/imagens/projetos/smartleader/imagem_1.png') },
+            { image: require('@/assets/imagens/projetos/smartleader/imagem_2.png') },
+            { image: require('@/assets/imagens/projetos/smartleader/imagem_3.png') },
+          ],
+          highlights: ['Multitenancy — suporte a múltiplas empresas', 'Notificações automáticas por e-mail', 'Filtros avançados e exportação de relatórios', 'Filas para processamento assíncrono'],
+          link: '',
+          linkgit: 'https://github.com/lucaasbritto/smartleader',
+          technologies: ['Laravel','Vue.js', 'Vuex', 'Quasar', 'MySQL', 'Docker', 'JWT', 'REST API', 'Filas'],
+        },
+        {
+          type: 'case',
+          title: 'Plataforma de Notícias',
+          status: 'Online',
+          statusType: 'live',
+          description: 'Plataforma web para publicação e gerenciamento de notícias do mercado financeiro com filtros, paginação e área administrativa.',
+          fullDescription: 'Plataforma web para publicação e gerenciamento de notícias do mercado financeiro. O sistema permite criar, editar e organizar notícias por categorias, com filtros, paginação e área administrativa protegida por autenticação.',
+          image: require('@/assets/imagens/projetos/investidor/imagem_capa.png'),
+          galery: [
+            { image: require('@/assets/imagens/projetos/investidor/imagem_capa.png') },
+            { image: require('@/assets/imagens/projetos/investidor/imagem_1.png') },
+            { image: require('@/assets/imagens/projetos/investidor/imagem_2.png') },
+            { image: require('@/assets/imagens/projetos/investidor/imagem_3.png') },
+          ],
+          highlights: ['Criação e edição de notícias', 'Organização por categorias', 'Filtros e paginação', 'Área administrativa com autenticação'],
+          link: 'https://lucasbritto.com/investidor/login',
+          linkgit: 'https://github.com/lucaasbritto/investidor',
+          technologies: ['Laravel','Vue.js', 'Quasar', 'Pinia', 'Vue Router', 'MySQL', 'Docker', 'JWT', 'REST API'],
+        },
+        {
+          type: 'case',
+          title: 'Sistema de Gestão de Viagens Corporativas',
+          status: 'Offline',
+          statusType: 'offline',
+          description: 'Plataforma web para solicitação e acompanhamento de viagens corporativas com painel administrativo e notificações automáticas.',
+          fullDescription: 'Plataforma web para solicitação e acompanhamento de viagens corporativas com painel administrativo. O sistema permite que colaboradores criem e monitorem pedidos de viagem enquanto gestores aprovam ou cancelam solicitações — com notificações automáticas por e-mail a cada mudança de status e controle de acesso baseado em perfil.',
+          image: require('@/assets/imagens/projetos/onfly/imagem_capa.png'),
+          galery: [
+            { image: require('@/assets/imagens/projetos/onfly/imagem_capa.png') },
+            { image: require('@/assets/imagens/projetos/onfly/imagem_1.png') },
+            { image: require('@/assets/imagens/projetos/onfly/imagem_2.png') },
+            { image: require('@/assets/imagens/projetos/onfly/imagem_3.png') },
+          ],
+          highlights: ['Solicitação e acompanhamento de viagens', 'Aprovação e cancelamento por gestores', 'Notificações automáticas por e-mail', 'Controle de acesso baseado em perfil'],
+          link: '',
+          linkgit: 'https://github.com/lucaasbritto/onfly',
+          technologies: ['Laravel', 'Vue.js', 'Pinia', 'Axios', 'MySQL', 'JWT', 'REST API', 'Docker', 'Nginx', 'PHPUnit'],
+        },
+      ],
     };
   },
 
+  computed: {
+    filteredProjects() {
+      if (this.activeTab === 'all') return this.projects;
+      return this.projects.filter(p => p.type === this.activeTab);
+    },
+  },
+
+  mounted() {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { this.visible = true; obs.disconnect(); } },
+      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
+    );
+    obs.observe(this.$el);
+  },
+
   methods: {
-    truncateText(text, maxLength = 140) {
-      if (text.length <= maxLength) return text;
-      return text.slice(0, maxLength) + '...';
+    openModal(p) {
+      this.selectedProject = p;
+      this.modalSlide = 0;
+      this.modalOpen = true;
+      document.body.style.overflow = 'hidden';
     },
-
-    openProjectModal(project) {
-      this.selectedProject = project;
-      this.projectDialog = true;
+    closeModal() {
+      this.modalOpen = false;
+      document.body.style.overflow = '';
     },
-  
-    openLargeImageModal(image) {
-      this.selectedLargeImage = image;
-      this.largeImageDialog = true;
-    },
-    
-    isExpanded(project) {
-      return this.selectedProject === project && this.projectDialog;
-    },
-
-    toggleExpand(project) {
-      if (this.selectedProject === project) {
-        this.projectDialog = !this.projectDialog;
-      } else {
-        this.openProjectModal(project);
-      }
-    }
-  }
-}
+  },
+};
