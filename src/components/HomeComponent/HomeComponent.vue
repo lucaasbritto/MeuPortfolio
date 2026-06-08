@@ -20,8 +20,8 @@
         </div>
 
         <h1 class="hero-title animate-3">
-          Transformo sistemas complexos<br>
-          em soluções escaláveis<br>
+          Especializado em sistemas corporativos<br>
+          integrações e arquitetura de software<br>
           <span class="highlight">há mais de 9 anos.</span>
         </h1>
 
@@ -114,7 +114,7 @@
 
         <!-- Título -->
         <h1 class="mobile-title">
-          Transformo sistemas complexos em soluções escaláveis
+          Especializado em sistemas corporativos, integrações e arquitetura de software
           <span class="highlight"> há mais de 9 anos.</span>
         </h1>
 

@@ -12,9 +12,7 @@
 
           <!-- Logo -->
           <v-col cols="auto" class="logo-area">
-            <div class="logo-box">
-              <span class="logo-icon">LB</span>
-            </div>
+            <img :src="require('@/assets/imagens/logo.png')" alt="Lucas Britto" class="logo-img" />
             <span class="logo-name">LUCAS BRITTO</span>
           </v-col>
 

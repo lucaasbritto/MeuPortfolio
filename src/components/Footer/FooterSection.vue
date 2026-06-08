@@ -5,7 +5,7 @@
           <v-row class="align-center justify-center">
             <v-col class="text-center">
               <span class="copyright-text">
-                Copyright © {{ currentYear }} <span class="nameInFooter">Lucas Britto</span>. Todos os direitos reservados.
+                © {{ currentYear }} <span class="nameInFooter">Lucas Britto</span> • Desenvolvedor Full Stack.
               </span>
             </v-col>
           </v-row>
